@@ -1,20 +1,22 @@
 {
-    "exercises": [
-        {
-            "_id": "exercise1",
-            "title": "2 week abs challenge",
-            "image": "images/exercise1.jpg",
-            "description": "20-50 mins per day for 14 days",
-            "type": "abs, weight loss",
-            "equipment": "fitness mat"
-        },
-        {
-            "_id": "exercise2",
-            "title": "Summer shred challenge",
-            "image": "images/exercise2.jpg",
-            "description": "10-60 mins per day for 35 days",
-            "type": "abs, full body, weight loss",
-            "equipment": "fitness mat"
-        }
-    ]
+  "exercises": [
+    {
+      "_id": "exercise1",
+      "title": "2 week abs challenge",
+      "image": "images/exercise1.jpg",
+      "description": "20-50 mins per day for 14 days",
+      "type": "abs, weight loss",
+      "equipment": "fitness mat",
+      "count": 1
+    },
+    {
+      "_id": "exercise2",
+      "title": "Summer shred challenge",
+      "image": "images/exercise2.jpg",
+      "description": "10-60 mins per day for 35 days",
+      "type": "abs, full body, weight loss",
+      "equipment": "fitness mat",
+      "count": 3
+    }
+  ]
 }
