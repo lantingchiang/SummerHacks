@@ -17,6 +17,7 @@ export default class Exercises extends Component {
                 <div>Description: {exercise.description}</div>
                 <div>Type: {exercise.type}</div>
                 <div>Equipment: {exercise.equipment} </div>
+                <div>Number Joined: {exercise.count} </div>
                 <button className="button-primary">Join!</button>
               </div>
             </li>
