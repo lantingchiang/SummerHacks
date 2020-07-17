@@ -19,12 +19,17 @@ textarea {
 
 .grid-container {
     display: grid;
-    grid-template-areas: "header"
-    "main"
-    "footer";
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
     grid-template-rows: 5rem 1fr 5rem; /* 5 rem for header & footer */
     grid-template-columns: 1fr;
     height: 100%;
+}
+
+a {
+    text-decoration: none;
 }
 
 a:hover { /*hovering over links*/
@@ -36,6 +41,7 @@ header {
     background-color: #2AB7CA;
     color: #ffffff;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
 }
@@ -57,4 +63,17 @@ footer {
     display: flex; /*expands items to fill available free space*/
     justify-content: center; /*horizontally*/
     align-items: center; /*vertically*/
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main {
+    flex: 3 60rem;
+}
+
+.sidebar {
+    flex: 1 20 rem;
 }
