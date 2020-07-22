@@ -2,15 +2,39 @@ import React from 'react';
 import data from "./data.json";
 import Exercises from './components/Exercises';
 import Filter from './components/Filter';
+import Sidebar from './components/Sidebar';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       exercises: data.exercises,
+      joined: [],
       type: "",
       sort: "",
     }
+  }
+
+  incrementCount = (exerciseChosen) => {
+    let joined = this.state.joined.slice()
+
+    let exercises = this.state.exercises.map((exercise) => {
+      if (exercise._id === exerciseChosen._id) {
+        if (!joined.find(e => e._id === exercise._id)) {
+          exercise = { ...exercise, count: exercise.count + 1 }
+          joined.push(exercise)
+        }
+      }
+      return exercise;
+    })
+
+    this.setState({ exercises, joined })
+  }
+
+  withdraw = (exerciseChosen) => {
+    let joined = this.state.joined.slice().filter(x => x._id !== exerciseChosen._id);
+
+    this.setState({ joined })
   }
 
   sortExercises = (event) => {
@@ -60,9 +84,11 @@ class App extends React.Component {
                 filterExercises={this.filterExercises}
                 sortExercises={this.sortExercises}
               ></Filter>
-              <Exercises exercises={this.state.exercises}></Exercises>
+              <Exercises exercises={this.state.exercises} incrementCount={this.incrementCount}></Exercises>
             </div>
-            <div className="sidebar">Exercises joined</div>
+            <div className="sidebar">
+              <Sidebar joined={this.state.joined} withdraw={this.withdraw} />
+            </div>
           </div>
         </main>
         <footer>
