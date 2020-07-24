@@ -9,7 +9,7 @@ class App extends React.Component {
     super();
     this.state = {
       exercises: data.exercises,
-      joined: [],
+      joined: JSON.parse(localStorage.getItem("joined")) ? JSON.parse(localStorage.getItem("joined")) : [], //reverses effect of stringify
       type: "",
       sort: "",
     }
@@ -29,12 +29,14 @@ class App extends React.Component {
     })
 
     this.setState({ exercises, joined })
+    //saves state in borwser without need of backend
+    localStorage.setItem("joined", JSON.stringify(joined)) //stringify to convert JS objects to string
   }
 
   withdraw = (exerciseChosen) => {
     let joined = this.state.joined.slice().filter(x => x._id !== exerciseChosen._id);
-
     this.setState({ joined })
+    localStorage.setItem("joined", JSON.stringify(joined))
   }
 
   sortExercises = (event) => {
